@@ -1,6 +1,6 @@
 # Optimizely CORs
 
-> Solution for persisting Optimizely visitor data to external origins synchronously, without having to waitForOrigin sync on off-origin page and result in a flicker
+> Solution for persisting Optimizely visitor data to external origins synchronously, without having to waitForOrigin sync on off-origin page and result in a flicker. Will sync over the optimizelyEndUserId cookie as well as all visitor state data in localStorage.
 
 ## Demo 
 [Demo can be found here](https://creid-optimizely.s3.amazonaws.com/optcors/1.html)
