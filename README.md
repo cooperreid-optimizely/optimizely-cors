@@ -45,4 +45,7 @@ Tested and validated in:
 > Notes: <br />Safari - Private browsing mode (default setting) forbids any CORs storage access
 
 ## Todo 
-* Rethink responsibility of `receiever.js`. The code responsbility for receiving `postMessage` messages should be embedded directly in the `sync.html` page, and the code that sets the optimizelyEndUserId cookie can live somewhere on origin 2's pages ahead of Optimizely. Essentially, the postMessage code in `receiver.js` doesn't need to live everywhere across the origin 2 site.
+* Rethink responsibility of `receiever.js`
+* The code responsbility for receiving `postMessage` messages should be embedded directly in the `sync.html` page, and the code that sets the optimizelyEndUserId cookie can live somewhere on origin 2's pages ahead of Optimizely
+* Essentially, the postMessage code in `receiver.js` doesn't need to live everywhere across the origin 2 site.
+* Make the entire solution generic enough to be agnostic to a "primary" origin
