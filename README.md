@@ -48,5 +48,5 @@ Tested and validated in:
 * Make the entire solution generic enough to be agnostic to a "primary" origin
 * Refactor cookie-setting code in `receiever.js`
 * Rethink responsibility of `receiever.js`
-* The code responsbility for receiving `postMessage` messages should be embedded directly in the `sync.html` page, and the code that sets the optimizelyEndUserId cookie can live somewhere on origin 2's pages ahead of Optimizely
+* The code responsible for receiving `postMessage` messages should be embedded directly in the `sync.html` page, and the code that sets the optimizelyEndUserId cookie can live somewhere on origin 2's pages ahead of Optimizely
 * Essentially, the postMessage code in `receiver.js` doesn't need to live everywhere across the origin 2 site.
