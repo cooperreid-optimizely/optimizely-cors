@@ -2,6 +2,9 @@
 
 > Solution for persisting Optimizely-related browser data to external origins, without having to await a data-sync and without resulting in flickering
 
+## Demo 
+[Demo can be found here](https://creid-optimizely.s3.amazonaws.com/optcors/1.html)
+
 ## Components
 
 #### `forwarder.js`
@@ -17,9 +20,6 @@ Data receiving mechanism that lives on "off origin". The OptimizelyDataReceiever
 
 #### `sync.html`
 Page that includes the `receiver.js` client. This should be hosted on the 2nd origin in order to give pass and set the localStorage keys to the 2nd origin.
-
-## Demo 
-[Demo can be found here](https://creid-optimizely.s3.amazonaws.com/optcors/1.html)
 
 ## Setup
 1. Host the `forwarder.js` on a page on the primary origin
