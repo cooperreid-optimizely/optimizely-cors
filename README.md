@@ -1,6 +1,6 @@
 # Optimizely CORs
 
-> Solution for persisting Optimizely-related browser data to external origins synchronously, without having to await a data-sync and without resulting in flickering
+> Solution for persisting Optimizely-related browser data to external origins synchronously, without having to waitForOrigin sync on off-origin page and result in a flicker
 
 ## Demo 
 [Demo can be found here](https://creid-optimizely.s3.amazonaws.com/optcors/1.html)
