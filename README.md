@@ -25,6 +25,17 @@ Page that includes the `receiver.js` client. This should be hosted on the 2nd or
 1. Host the `forwarder.js` on a page on the primary origin
 2. Host the `sycn.html` page on a 2nd origin
 3. Host the `receiver.js` on any page on the 2nd origin where Optimizely needs to run
+4. Although the `OptimizelyDataForwarder` will sync things on page-load, activity may happen during the page-visit that mutates the state of the optimizely visitor record. To account for this, add this listener to sync data over each time the visitor leaves the page. Alternatively, you can call those data-syncing methods on demand in some other context after visitor state mutation.
+
+```javascript
+/**
+* Forward data to iFrame before leaving the page
+*/
+window.onbeforeunload = function() {
+  OptimizelyDataForwarder.sendVisitorData();
+  OptimizelyDataForwarder.sendOEUID();
+}
+```
 
 ## Browser Support 
 Tested and validated in:
