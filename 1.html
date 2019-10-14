@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>  
+  <script src="https://cdn.optimizely.com/js/8312040347.js"></script>  
+  <script type="text/javascript" src="forwarder.js"></script>    
+</head>
+<body>	
+
+<h1>Origin 1</h1>
+
+optimizelyEndUserID: <span id="show-oeuid"></span><br /><br />
+<a href="https://second-origin/2.html">Go to Origin 2</a>
+
+<br /><br />
+
+<form onsubmit="addAttr(this);return false;">
+    <input type="text" id="attrKey" placeholder="Custom_attr_key" />
+    <input type="text" id="attrVal" placeholder="Custom_attr_value" />
+    <input type="submit" value="Add Custom Attribute" />
+</form>
+
+<br /><br /> 
+
+<h3>User Attributes:</h3>
+
+<script type="text/javascript">
+function displayAttr() {
+    var attrs = optimizely.get('visitor').custom,
+        html = '',
+        writeTo = document.createElement('div'),
+        existingWriteTo = document.querySelector('#show-attr');
+    writeTo.id = 'show-attr';
+
+    for(var key in attrs) {
+      html += (key + ': ' + attrs[key].value + '<br />');
+    };
+    if(existingWriteTo) {
+      existingWriteTo.innerHTML = html;
+    }
+    else {
+      writeTo.innerHTML = html;
+      document.body.appendChild(writeTo);
+    }
+}
+displayAttr();
+
+function addAttr(formNode) {
+  var attrObj = {};
+  attrObj[formNode.querySelector('#attrKey').value] = formNode.querySelector('#attrVal').value;
+  window.optimizely.push({
+    "type": "user",
+    "attributes": attrObj
+  });
+  formNode.reset();  
+  displayAttr();
+}
+
+document.getElementById('show-oeuid').innerHTML = window.optimizely.get('visitor').visitorId;
+
+/**
+* Forward data to iFrame before leaving the page
+*/
+window.onbeforeunload = function() {
+  OptimizelyDataForwarder.sendVisitorData();
+  OptimizelyDataForwarder.sendOEUID();
+}
+</script>
+
+</body>
+</html>
