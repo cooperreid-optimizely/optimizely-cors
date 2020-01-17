@@ -1,6 +1,6 @@
 # Optimizely CORs
 
-Solution for persisting Optimizely visitor data to cross-origin synchronously, without having to waitForOrigin sync on off-origin page and result in a flicker. Will sync over both the optimizelyEndUserId cookie as well as all visitor state data in localStorage across top-level domains (TLD), domains (eTLD+1) and sub-domains (eTLD+n+1).
+Solution for persisting Optimizely visitor data to cross-origin synchronously, without having to waitForOrigin sync on off-origin page and result in a flicker. Will sync over both the optimizelyEndUserId cookie as well as all visitor state data in localStorage across top-level domains (TLD), domains (eTLD+1) and sub-domains (eTLD+n+1) by means of using a 1st party iFrame.
 
 ## Demo 
 [Demo can be found here](https://creid-optimizely.s3.amazonaws.com/optcors/1.html)
